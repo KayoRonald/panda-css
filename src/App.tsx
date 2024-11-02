@@ -1,9 +1,14 @@
-import { css } from '../styled-system/css';
- 
+// import { css } from '../styled-system/css';
+import { ThemeProvider } from "next-themes";
+import { RouterProvider } from "react-router-dom";
+import router from "./router/router";
+
 function App() {
   return (
-    <div className={css({ fontSize: "2xl", fontWeight: 'bold', color: 'red.500' })}>Hello 🐼!</div>
-  )
+    <ThemeProvider attribute='class' disableTransitionOnChange>
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  );
 }
- 
+
 export default App;
