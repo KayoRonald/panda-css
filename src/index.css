@@ -1,1 +1,7 @@
 @layer reset, base, tokens, recipes, utilities;
+
+
+a{
+  background-image:
+                  linear-gradient(110deg, #ffd902 45%, #d3c88d 55%, #f7e43a),
+}

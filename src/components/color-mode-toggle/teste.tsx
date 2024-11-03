@@ -19,7 +19,8 @@ export const Button = ({
     letterSpacing='tight'
     display='flex'
     alignItems='center'
-    gap='2'
+    gap='4'
+    m={2}
     className={switchStyle}
     {...props}
   >
