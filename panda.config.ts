@@ -1,7 +1,11 @@
 import { defineConfig } from "@pandacss/dev";
-import { colors } from "./theme/colors";
-import { semanticTokens as semanticColor } from "./theme/semantic-tokens";
+import { colors } from "./theme/tokens/colors";
+import { semanticTokens as semanticColor } from "./theme/semantic-tokens/semantic-tokens";
 import { recipes } from './theme/recipes'
+import { globalStyles as  globalCss } from './theme/global-css'
+import { zIndices } from "./theme/tokens/z-indeces";
+import { keyframes, animations } from "./theme/animations/keyframes";
+
 export default defineConfig({
   // Whether to use css reset
   preflight: true,
@@ -31,8 +35,11 @@ export default defineConfig({
         xl: '1280px',
         '2xl': '1536px'
       },
+      keyframes,
       tokens: {
         colors,
+        zIndex: zIndices,
+        animations,
       },
       semanticTokens:{
         colors: semanticColor,
@@ -40,16 +47,10 @@ export default defineConfig({
       recipes
     },
   },
-
   jsxFramework: "react",
   // The output directory for your css system
   outdir: "styled-system",
   // custom theme
-   // Global CSS here
-   globalCss: {
-    body: {
-      bg: { base: '#F8FAFC', _dark: 'black' },
-      color: { base: 'black', _dark: 'white' },
-    },
-  },
+  // Global CSS here
+  globalCss,
 });

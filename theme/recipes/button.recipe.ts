@@ -17,6 +17,7 @@ export const buttonRecipe = defineRecipe({
     paddingY: 3,
     border: '3px solid var(--border-color, black)',
     boxShadow: '4px 4px 0px 0px var(--shadow-color, black)',
+    cursor: 'pointer',
     borderRadius: '13px',
     transition: 'all',
     '&:is(a, button)': {
@@ -56,14 +57,12 @@ export const buttonRecipe = defineRecipe({
         color: 'black'
       },
       yellow: {
-        bg: 'bg.main',
-        color: 'text.main'
+        bg: 'yellow.600',
+        color: 'text.main',
       },
       border: {
         bg: 'transparent',
         color: 'text.main',
-        borderColor: 'text.headline',
-        boxShadowColor: 'text.headline'
       },
       ghost: {
         bg: 'transparent',
