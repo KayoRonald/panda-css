@@ -1,61 +1,161 @@
 import { ColorModeToggle } from "../components/color-mode-toggle";
-import { center, flex, stack } from "../../styled-system/patterns";
-import { css } from "../../styled-system/css";
+import { panda, Stack } from "../../styled-system/jsx";
+import { css, cx } from "../../styled-system/css";
+import { center, container } from "../../styled-system/patterns";
+import { button } from "../../styled-system/recipes";
+import Enterprise from "../components/enterprise";
 
 function Home() {
   return (
     <>
-      <div
-        className={css({
-          position: 'absolute',
-          top: '8px',
-          right: '32px',
-        })}
+      <panda.header
+        display={"flex"}
+        justifyContent={"end"}
+        position="sticky"
+        top={0}
+        zIndex={"modal"}
+        bg={"gray.950"}
+        width={"full"}
       >
         <ColorModeToggle />
-      </div>
-      <div
-      className={css({
-        minH: '100dvh',
-        bg: '#F8FAFC',
-        pt: '96px',
-        px: { base: '24px', lg: '48px' },
-      })}
-    >
-      <div className={flex()}>
-        <div className={stack({ maxW: { lg: '600px' }, mx: 'auto' })}>
-          <h1
-            className={css({
-              fontSize: '36px',
-              fontWeight: '800',
+      </panda.header>
+
+      <panda.section
+        bg="white"
+        _dark={{
+          bg: "gray.800",
+        }}
+        minH="100vh"
+        display="flex"
+        alignItems="center"
+      >
+        <div
+          className={container({
+            py: { base: 8, lg: 16 },
+            px: { base: 4, lg: 12 },
+            textAlign: "center",
+            maxWidth: { base: "6xl", lg: "7xl" },
+          })}
+        >
+          <a
+            href="#"
+            className={center({
+              inline: true,
+              justifyContent: "space-between",
+              py: 1,
+              px: 1,
+              pr: 4,
+              mb: 7,
+              fontSize: "sm",
+              color: "gray.700",
+              bg: "gray.300",
+              _hover: {
+                bg: "gray.200",
+              },
+              rounded: "full",
+              _dark: {
+                color: "white",
+                bg: "gray.700",
+                _hover: {
+                  bg: "gray.600",
+                },
+              },
+              "& > span:first-child": {
+                px: 4,
+                mr: 2,
+                rounded: "full",
+                fontWeight: "bold",
+                backgroundSize: "200% 100%",
+                backgroundImage:
+                  "linear-gradient(110deg, #d4a017 45%, #d1d5db 55%, #eab308)",
+                _dark: {
+                  backgroundImage:
+                    "linear-gradient(110deg, #d4af37 45%, #4b5563 55%, #facc15)",
+                },
+                animation: "shine",
+              },
             })}
           >
-            Simplified Payments and Invoice Tracking Management
-          </h1>
+            <span>New</span>
+            <span>Journey Beyond the Stars</span>
+          </a>
+
+          <panda.h1
+            letterSpacing="tight"
+            fontWeight="bold"
+            lineHeight="1.2"
+            mb="4"
+            fontSize={{ base: "4xl", md: "5xl" }}
+            color="gray.900"
+            _dark={{ color: "white" }}
+          >
+            Unlock the Universe’s Hidden Frontiers
+          </panda.h1>
+
           <p
             className={css({
-              fontSize: '21px',
+              mb: 8,
+              fontSize: "lg",
+              fontWeight: "normal",
+              color: "gray.500",
+              lg: { fontSize: "xl" },
+              sm: { px: 16 },
+              xl: { px: 48 },
+              _dark: { color: "gray.400" },
             })}
           >
-            Centralize bill payments and invoice management to help you gain
-            better control over your finances, ensure payments are made on time,
-            and have a clear overview of your financial obligations.
+            At Galaxos, we venture into uncharted space, blending innovation and
+            exploration to shape the future across galaxies.
           </p>
+
+          <Stack
+            justify="center"
+            align="center"
+            direction={{ base: "column", sm: "row" }}
+            gap="6"
+            mb="8"
+            px={{ base: 4, lg: 16 }}
+          >
+            <button
+              className={cx(
+                button({ color: "yellow", size: "lg" }),
+                css({ w: { base: "full", sm: "240px" } })
+              )}
+            >
+              Your Journey
+              <svg
+                className={css({ ml: 2, mr: 1, w: 5, h: 5 })}
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+            <button
+              className={cx(
+                button({ color: "white", size: "lg" }),
+                css({ w: { base: "full", sm: "240px" } })
+              )}
+            >
+              <svg
+                className={css({ mr: 2, ml: 1, w: 5, h: 5 })}
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path>
+              </svg>
+              Watch video
+            </button>
+          </Stack>
+          <Enterprise />
         </div>
-        <div>
-          <img
-            src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZmluYW5jZXxlbnwwfHwwfHx8MA%3D%3D'
-            alt='simplified payments and invoices'
-            className={css({
-              width: 'full',
-              height: 'full',
-              borderRadius: '12px',
-              objectFit: 'cover',
-            })}
-          />
-        </div>
-      </div>
-    </div>
+      </panda.section>
     </>
   );
 }
