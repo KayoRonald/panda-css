@@ -1,9 +1,10 @@
 import { ColorModeToggle } from "../components/color-mode-toggle";
 import { panda, Stack } from "../../styled-system/jsx";
 import { css, cx } from "../../styled-system/css";
-import { center, container } from "../../styled-system/patterns";
-import { button } from "../../styled-system/recipes";
+import { container } from "../../styled-system/patterns";
+import { badge, button } from "../../styled-system/recipes";
 import Enterprise from "../components/enterprise";
+import { styledBage, styledSpan } from "./style";
 
 function Home() {
   return (
@@ -39,44 +40,15 @@ function Home() {
         >
           <a
             href="#"
-            className={center({
-              inline: true,
-              justifyContent: "space-between",
-              py: 1,
-              px: 1,
-              pr: 4,
-              mb: 7,
-              fontSize: "sm",
-              color: "gray.700",
-              bg: "gray.300",
-              _hover: {
-                bg: "gray.200",
-              },
-              rounded: "full",
-              _dark: {
-                color: "white",
-                bg: "gray.700",
-                _hover: {
-                  bg: "gray.600",
-                },
-              },
-              "& > span:first-child": {
-                px: 4,
-                mr: 2,
-                rounded: "full",
-                fontWeight: "bold",
-                backgroundSize: "200% 100%",
-                backgroundImage:
-                  "linear-gradient(110deg, #d4a017 45%, #d1d5db 55%, #eab308)",
-                _dark: {
-                  backgroundImage:
-                    "linear-gradient(110deg, #d4af37 45%, #4b5563 55%, #facc15)",
-                },
-                animation: "shine",
-              },
-            })}
+            className={cx(
+              badge({
+                size: "xs",
+                variant: "solid",
+              }),
+              styledBage
+            )}
           >
-            <span>New</span>
+            <span className={styledSpan}>New</span>
             <span>Journey Beyond the Stars</span>
           </a>
 
@@ -119,10 +91,10 @@ function Home() {
             <button
               className={cx(
                 button({ color: "yellow", size: "lg" }),
-                css({ w: { base: "full", sm: "240px" } })
+                css({ minWidth: "100px", rounded: "md" })
               )}
             >
-              Your Journey
+              Start Journey
               <svg
                 className={css({ ml: 2, mr: 1, w: 5, h: 5 })}
                 fill="currentColor"
@@ -139,7 +111,7 @@ function Home() {
             <button
               className={cx(
                 button({ color: "white", size: "lg" }),
-                css({ w: { base: "full", sm: "240px" } })
+                css({ minWidth: "100px", rounded: "md" })
               )}
             >
               <svg
